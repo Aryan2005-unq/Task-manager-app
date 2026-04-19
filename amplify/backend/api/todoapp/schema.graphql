@@ -2,4 +2,8 @@ type Todo @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   name: String!
   description: String
+  isCompleted: Boolean
+  filePath: String
+  priority: String
+  dueDate: AWSDate
 }

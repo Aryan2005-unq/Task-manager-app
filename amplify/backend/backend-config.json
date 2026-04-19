@@ -1,5 +1,19 @@
 {
   "api": {
+    "aiprediction": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "aiTaskFunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "todoapp": {
       "dependsOn": [
         {
@@ -51,6 +65,19 @@
       "service": "Cognito"
     }
   },
+  "function": {
+    "aiTaskFunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "emailReminderFunction": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "hosting": {
     "amplifyhosting": {
       "providerPlugin": "awscloudformation",
@@ -59,6 +86,54 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_aiTaskFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "aiTaskFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_aiTaskFunction_groqApiKey": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "aiTaskFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_aiTaskFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "aiTaskFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_emailReminderFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "emailReminderFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_emailReminderFunction_dummy": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "emailReminderFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_emailReminderFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "emailReminderFunction"
+        }
+      ]
+    },
     "AMPLIFY_hosting_amplifyhosting_appId": {
       "usedBy": [
         {
@@ -74,6 +149,13 @@
           "resourceName": "amplifyhosting"
         }
       ]
+    }
+  },
+  "storage": {
+    "todoStorage": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     }
   }
 }

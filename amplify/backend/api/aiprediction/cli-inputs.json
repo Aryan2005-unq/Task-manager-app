@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "paths": {
+    "/suggest": {
+      "name": "/suggest",
+      "lambdaFunction": "aiTaskFunction",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update"
+        ]
+      }
+    }
+  }
+}

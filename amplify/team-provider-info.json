@@ -1,4 +1,4 @@
-{
+﻿{
   "dev": {
     "awscloudformation": {
       "AuthRoleName": "amplify-todoapp-dev-34e55-authRole",
@@ -9,19 +9,36 @@
       "UnauthRoleName": "amplify-todoapp-dev-34e55-unauthRole",
       "StackName": "amplify-todoapp-dev-34e55",
       "StackId": "arn:aws:cloudformation:us-east-1:904727092308:stack/amplify-todoapp-dev-34e55/17d69b60-3822-11f1-846b-120da234418f",
-      "AmplifyAppId": "d21ox17c03unj5"
+      "AmplifyAppId": "d21ox17c03unj5",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-todoapp-dev-34e55-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
         "todoappd2f18784": {}
       },
       "api": {
-        "todoapp": {}
+        "todoapp": {},
+        "aiprediction": {}
       },
       "hosting": {
         "amplifyhosting": {
           "appId": "d21ox17c03unj5",
           "type": "manual"
+        }
+      },
+      "storage": {
+        "todoStorage": {}
+      },
+      "function": {
+        "aiTaskFunction": {
+          "groqApiKey": "DUMMY_KEY_REMOVED_FOR_SECURITY",
+          "deploymentBucketName": "amplify-todoapp-dev-34e55-deployment",
+          "s3Key": "amplify-builds/aiTaskFunction-48554c6f667248757250-build.zip"
+        },
+        "emailReminderFunction": {
+          "dummy": "DUMMY",
+          "deploymentBucketName": "amplify-todoapp-dev-34e55-deployment",
+          "s3Key": "amplify-builds/emailReminderFunction-63714146655638385878-build.zip"
         }
       }
     }

@@ -1,0 +1,9 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "groqApiKey",
+      "environmentVariableName": "GROQ_API_KEY"
+    }
+  ]
+}

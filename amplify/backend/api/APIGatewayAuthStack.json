@@ -1,0 +1,293 @@
+{
+  "Description": "API Gateway policy stack created using Amplify CLI",
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+    "authRoleName": {
+      "Type": "String"
+    },
+    "unauthRoleName": {
+      "Type": "String"
+    },
+    "env": {
+      "Type": "String"
+    },
+    "aiprediction": {
+      "Type": "String"
+    }
+  },
+  "Conditions": {
+    "ShouldNotCreateEnvResources": {
+      "Fn::Equals": [
+        {
+          "Ref": "env"
+        },
+        "NONE"
+      ]
+    }
+  },
+  "Resources": {
+    "PolicyAPIGWAuth1": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "execute-api:Invoke"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "aiprediction"
+                      },
+                      "/",
+                      {
+                        "Fn::If": [
+                          "ShouldNotCreateEnvResources",
+                          "Prod",
+                          {
+                            "Ref": "env"
+                          }
+                        ]
+                      },
+                      "/POST/suggest/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "aiprediction"
+                      },
+                      "/",
+                      {
+                        "Fn::If": [
+                          "ShouldNotCreateEnvResources",
+                          "Prod",
+                          {
+                            "Ref": "env"
+                          }
+                        ]
+                      },
+                      "/POST/suggest"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "aiprediction"
+                      },
+                      "/",
+                      {
+                        "Fn::If": [
+                          "ShouldNotCreateEnvResources",
+                          "Prod",
+                          {
+                            "Ref": "env"
+                          }
+                        ]
+                      },
+                      "/GET/suggest/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "aiprediction"
+                      },
+                      "/",
+                      {
+                        "Fn::If": [
+                          "ShouldNotCreateEnvResources",
+                          "Prod",
+                          {
+                            "Ref": "env"
+                          }
+                        ]
+                      },
+                      "/GET/suggest"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "aiprediction"
+                      },
+                      "/",
+                      {
+                        "Fn::If": [
+                          "ShouldNotCreateEnvResources",
+                          "Prod",
+                          {
+                            "Ref": "env"
+                          }
+                        ]
+                      },
+                      "/PUT/suggest/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "aiprediction"
+                      },
+                      "/",
+                      {
+                        "Fn::If": [
+                          "ShouldNotCreateEnvResources",
+                          "Prod",
+                          {
+                            "Ref": "env"
+                          }
+                        ]
+                      },
+                      "/PUT/suggest"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "aiprediction"
+                      },
+                      "/",
+                      {
+                        "Fn::If": [
+                          "ShouldNotCreateEnvResources",
+                          "Prod",
+                          {
+                            "Ref": "env"
+                          }
+                        ]
+                      },
+                      "/PATCH/suggest/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "aiprediction"
+                      },
+                      "/",
+                      {
+                        "Fn::If": [
+                          "ShouldNotCreateEnvResources",
+                          "Prod",
+                          {
+                            "Ref": "env"
+                          }
+                        ]
+                      },
+                      "/PATCH/suggest"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "authRoleName"
+          }
+        ]
+      }
+    }
+  }
+}

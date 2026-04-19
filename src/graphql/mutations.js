@@ -10,6 +10,10 @@ export const createTodo = /* GraphQL */ `
       id
       name
       description
+      isCompleted
+      filePath
+      priority
+      dueDate
       createdAt
       updatedAt
       owner
@@ -26,6 +30,10 @@ export const updateTodo = /* GraphQL */ `
       id
       name
       description
+      isCompleted
+      filePath
+      priority
+      dueDate
       createdAt
       updatedAt
       owner
@@ -42,6 +50,10 @@ export const deleteTodo = /* GraphQL */ `
       id
       name
       description
+      isCompleted
+      filePath
+      priority
+      dueDate
       createdAt
       updatedAt
       owner

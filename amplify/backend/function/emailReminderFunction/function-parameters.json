@@ -1,0 +1,10 @@
+{
+  "permissions": {},
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "dummy",
+      "environmentVariableName": "DUMMY"
+    }
+  ]
+}
